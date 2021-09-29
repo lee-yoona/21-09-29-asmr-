@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	
+	<style type="text/css">
+	body{margin: 0; background: black;}
+		#imageA{ display: block; width: 70%; position: absolute; top: 200px}
+		#imageB{ display: block; width: 40%; position: absolute; top: 700px}
+		#imageC{ display: block; width: 70%; position: absolute; left: 450px; top: 700px;}
+		#stopBut{ display: block; width: 50%; position: absolute; top: 1100px; }
+	</style>
+
+
+
+</head>
+<body>
+	
+	<input id="vol" type="range" min="0" max="50" value="25">
+	<img id="imageA" src="jewelry2.png">
+	<audio id="musicA" src="music1.mp3"></audio>
+	<img id="imageB" src="jewelry3.png">
+	<audio id="musicB" src="music2.mp3"></audio>
+	<img id="imageC" src="jewelry4.png">
+	<audio id="musicC" src="music3.mp3"></audio>
+	<img id="stopBut" src="jewelry5.png">
+
+	<script type="text/javascript">
+
+		vol.oninput = function(){
+			musicA.volume = vol.value / 50;
+		}
+
+		var state = "off";
+
+		imageA.onclick = function(){
+			if(state == "off"){
+				musicA.play();
+				state = "on";
+			}else{
+				musicA.pause();
+				state = "off";
+			}
+		}
+
+		imageB.onclick = function(){
+			if(state == "off"){
+				musicB.play();
+				state = "on";
+			}else{
+				musicB.pause();
+				state = "off";
+			}
+		}
+
+		imageC.onclick = function(){
+			if(state == "off"){
+				musicC.play();
+				state = "on";
+			}else{
+				musicC.pause();
+				state = "off";
+			}
+		}
+
+		stopBut.onclick = function(){
+			musicA.pause();
+			musicB.pause();
+			musicC.pause();
+		}
+
+	</script>
+</body>
+</html>
